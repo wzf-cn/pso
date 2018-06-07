@@ -14,7 +14,7 @@ class VANET:
         self.car_num = car_num                  # No. of terminals，整个感知范围内的车辆数
         self.DIFS = DIFS                        # time period for a DCF inter-frame space
         self.sigma = sigma                      # slot time duration
-        self.W = W                              # CSMA backoff window size 15~1024 =====================
+        self.W = int(W)                         # CSMA backoff window size 15~1024 =====================
         self.delta = delta                      # propagation delay
         self.Rd = Rd                            # data transmission rate ==================
         self.pgi = pgi                          # packet generation rate with possible choices: 1/(2~20) ==============
@@ -23,7 +23,7 @@ class VANET:
         self.speed = speed                      # Average vehicle speed
         self.x = x                              # 发送节点与接受节点的距离
         self.n = n                              # 保证接收包的个数
-        self.NN = int(self.Ta / self.pgi)  # Ta时间内最多发送包的个数
+        self.NN = int(self.Ta / self.pgi)       # Ta时间内最多发送包的个数
         self.H = (128 + 272) * 1e+6 / self.Rd   # formula(5) E[PL]/Rd
         self.P = 1600 * 1e+6 / self.Rd          # formula(5) Lh/Rd
         self.lam = 1 / self.pgi                 # packet generation rate, pgi=packet generation iterval
